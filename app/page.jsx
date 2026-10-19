@@ -14,27 +14,40 @@ const services = [
   { title: "Sob medida", text: "Tem uma necessidade específica? A gente desenha a solução.", big: true },
 ];
 
-// Imagens ficam em /public/img
+// Imagens ficam em /public/img e são geradas por scripts/shot-portfolio.js
+// (tela inicial de cada site no ar, em 1600x1000 = 16/10, a proporção do .shot).
 const projects = [
   {
-    title: "LW Tecnologia",
+    title: "ANABE Creative",
+    category: "Catálogo + WhatsApp",
+    text: "Ateliê de presentes artesanais. Catálogo organized por ocasião, orçamento montado no WhatsApp e sem cadastro nem carrinho.",
+    image: "/img/anabe-creative.jpg",
+    url: "https://anabecreative.vercel.app",
+  },
+  {
+    title: "Moces Doces",
     category: "Site institucional",
-    text: "Soluções de gestão de frotas e logística, com painel de monitoramento, multas e roteirização.",
-    image: "/img/ecommerce.jpg",
+    text: "Confeitaria artesanal de Vila Matilde. Vitrine de docinhos e encomendas, com vitrine animada e pedido fechado no WhatsApp.",
+    image: "/img/moces-doces.jpg",
+    url: "https://mocesdoces.vercel.app",
   },
   {
     title: "Pet Love Of Animals",
     category: "Landing page",
-    text: "Pet shop com banho, tosa e agendamento direto pelo WhatsApp.",
-    image: "/img/dashboard.jpg",
-  },
-  {
-    title: "Doce Magia Confeitaria",
-    category: "Site institucional",
-    text: "Confeitaria artesanal com bolos personalizados, doces finos e kits presente.",
-    image: "/img/booking.jpg",
+    text: "Banho, tosa, busca e entrega para pets. Serviços, galeria e agendamento pelo WhatsApp.",
+    image: "/img/pet-love.jpg",
+    url: "https://petlove-theta-blue.vercel.app",
   },
 ];
+
+// Seta de link externo, usada no selo e na linha "ver site".
+function Out() {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}
 
 const steps = [
   { title: "Imersão", text: "Entendemos o negócio e o que o projeto precisa resolver." },
@@ -88,16 +101,29 @@ export default function Home() {
           </h2>
           <div className="work">
             {projects.map((p, i) => (
-              <article key={p.title} className={`pj rv p${i}`}>
+              <a
+                key={p.title}
+                className={`pj rv p${i}`}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir o site da ${p.title} em uma nova aba`}
+              >
                 <div className="shot">
                   <img src={p.image} alt={`Site ${p.title}`} loading="lazy" decoding="async" />
+                  <span className="seal">
+                    Ver site ao vivo <Out />
+                  </span>
                 </div>
                 <div className="meta">
                   <h3>{p.title}</h3>
                   <span>{p.category}</span>
                   <p>{p.text}</p>
+                  <span className="ver">
+                    Ver site ao vivo <Out />
+                  </span>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </section>

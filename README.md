@@ -45,6 +45,8 @@ forge-tech/
 │   └── WaRedirect.jsx   # Página de redirecionamento para WhatsApp
 ├── lib/                 # Funções e configurações auxiliares
 │   └── whatsapp.js      # Configurações do WhatsApp
+├── scripts/             # Ferramentas de manutenção
+│   └── shot-portfolio.js # Captura as telas dos sites do portfolio
 ├── public/              # Arquivos estáticos (imagens, etc.)
 │   └── img/             # Imagens dos projetos
 ├── .next/               # Build do Next.js (gerado automaticamente)
@@ -88,7 +90,7 @@ Como desenvolvedor jr. em Next.js, este projeto me ajudou a praticar:
 
 - Este é um projeto de aprendizado e pode conter melhorias futuras
 - O número do WhatsApp atualmente é um exemplo - substitua pelo seu próprio número em produção
-- As imagens na pasta `/public/img/` são placeholders e devem ser substituídas por imagens reais dos projetos
+- As imagens em `/public/img/` são telas reais dos sites do portfolio, geradas por `scripts/shot-portfolio.js`
 - O projeto está configurado como privado no package.json (typical for learning projects)
 
 ## 🤝 Contribuindo
