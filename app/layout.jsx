@@ -9,6 +9,13 @@ export const metadata = {
   title: "Forge Tech | Sites, aplicativos e sistemas sob medida",
   description:
     "A Forge Tech cria sites, aplicativos e sistemas sob medida para negócios que querem vender mais.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Forge Tech",
     description: "Tem uma ideia? Vamos construir.",
